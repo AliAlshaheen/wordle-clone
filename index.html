@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" class="light-mode">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wordle Clone</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <header class="header">
+        <h1>Wordle Clone</h1>
+        <div class="theme-toggle">
+          <span id="theme-label">Light Mode</span>
+          <label class="switch">
+            <input type="checkbox" id="theme-switch" />
+            <span class="slider"></span>
+          </label>
+        </div>
+        <button id="reset-btn">Reset</button>
+      </header>
+      <div class="info-section">
+        <p>
+          Guess the hidden 5-letter word within 6 tries. Each guess will give
+          you hints.
+        </p>
+        <p>
+          Green means correct letter in the right spot, yellow means correct
+          letter wrong spot, and gray means letter not in the word.
+        </p>
+      </div>
+      <div class="board-container">
+        <div id="board" class="board"></div>
+      </div>
+      <div class="message-container" id="message-container"></div>
+    </div>
+    <footer class="footer">
+      <p>
+        Made with ♥ by Ali Alshaheen. Check out the repo
+        <a
+          href="https://github.com/AliAlshaheen/wordle-clone"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Here</a
+        >.
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
