@@ -18,8 +18,8 @@
   --dark-present: #b59f3b;
   --dark-absent: #3a3a3c;
 
-  --tile-size: 60px;
-  --tile-gap: 15px;
+  --tile-size: 45px;
+  --tile-gap: 10px;
 }
 
 body {
@@ -87,9 +87,11 @@ body {
   font-size: 1rem;
   transition: background var(--transition-speed);
 }
+
 .light-mode #reset-btn:hover {
   background: var(--light-present);
 }
+
 .dark-mode #reset-btn:hover {
   background: var(--dark-present);
 }
@@ -103,6 +105,7 @@ body {
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 .dark-mode .info-section {
   background: rgba(30, 30, 31, 0.6);
 }
@@ -131,6 +134,7 @@ body {
   transition: background-color var(--transition-speed),
     border-color var(--transition-speed), transform 0.1s;
 }
+
 .dark-mode .tile {
   border: 2px solid var(--dark-tile-border);
   background: var(--dark-tile-bg);
@@ -140,6 +144,7 @@ body {
   background: var(--light-correct);
   border-color: var(--light-correct);
 }
+
 .dark-mode .tile.correct {
   background: var(--dark-correct);
   border-color: var(--dark-correct);
@@ -149,6 +154,7 @@ body {
   background: var(--light-present);
   border-color: var(--light-present);
 }
+
 .dark-mode .tile.present {
   background: var(--dark-present);
   border-color: var(--dark-present);
@@ -158,9 +164,66 @@ body {
   background: var(--light-absent);
   border-color: var(--light-absent);
 }
+
 .dark-mode .tile.absent {
   background: var(--dark-absent);
   border-color: var(--dark-absent);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--light-tile-border);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background var(--transition-speed);
+}
+
+.slider:before {
+  content: "\2600";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  transition: transform var(--transition-speed), content var(--transition-speed);
+}
+
+input:checked + .slider {
+  background: var(--light-correct);
+}
+
+input:checked + .slider:before {
+  content: "\1F319";
+  transform: translateX(25px);
 }
 
 footer {
@@ -170,12 +233,7 @@ footer {
   color: #777;
 }
 
-@media (max-width: 768px) {
-  :root {
-    --tile-size: 45px;
-    --tile-gap: 10px;
-  }
-
+@media (max-width: 1200px) {
   .header h1 {
     font-size: 1.5rem;
   }
